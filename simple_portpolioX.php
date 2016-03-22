@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Portfolio Simple X
-Plugin URI: http://firmansyahmaulana.com/
-Author: Firmansyah
-Author URI: http://firmansyahmaulana.com/
+Plugin URI: http://firmansyahmaulana.com/ , ihsanatkia.com
+Author: Firmansyah , Ihsan 
+Author URI: http://firmansyahmaulana.com/ , ihsanatkia.com
 Version: 1.0
 Text Domain: portfoliox
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
