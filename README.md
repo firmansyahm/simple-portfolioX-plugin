@@ -1,4 +1,4 @@
-Simple PortpolioX plugin
+Simple PortfolioX plugin
 ============================================================
 <h2>Installation</h2>
 
