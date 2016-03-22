@@ -56,11 +56,9 @@ add_action( 'init', 'post_portfoliox', 0 );
 
 //add style
 function style_portfoliox() {
-	wp_enqueue_style( 'normalize' , plugin_dir_url( __FILE__ ) . 'css/normalize.css' );
-	wp_enqueue_style( 'demo' , plugin_dir_url( __FILE__ ) . 'css/demo.css' );
-	wp_enqueue_style( 'set' , plugin_dir_url( __FILE__ ) . 'css/set1.css' );
-	wp_enqueue_style( 'set2' , plugin_dir_url( __FILE__ ) . 'css/set2.css' );
-	wp_enqueue_style( 'set3' , plugin_dir_url( __FILE__ ) . 'css/custom.css' );
+	wp_enqueue_style( 'component' , plugin_dir_url( __FILE__ ) . 'css/component.css' );
+	wp_enqueue_style( 'default' , plugin_dir_url( __FILE__ ) . 'css/default.css' );
+	wp_enqueue_style( 'style' , plugin_dir_url( __FILE__ ) . 'css/style.css' );
 	wp_enqueue_style( 'firman-fonts', 'http://fonts.googleapis.com/css?family=Raleway:400,800,300', array(), $theme->Version, 'all' );
 }
 add_action( 'wp_enqueue_scripts' , 'style_portfoliox' );
@@ -88,157 +86,33 @@ function portfoliox_shortcode($atts) {
 		$wp_query->query( $gallery_args ); 
 
 		if ( '' == $style ) {
-			$style = 'lily'; 
+			$style = 'cs-style-1'; 
 		}
 
 	ob_start();
-		echo '<div class="grid">';
+		echo '<div class="grid ' . $style . '">';
 		if ( $wp_query->have_posts() ) : 
 
-			while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-			
-			<?php 
+			while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
+			?>
+				<li>
+					<figure>
+						<?php if ( 'cs-style-4' == $style ): ?>
+								<div>
+						<?php endif ?>
 
-			$content = get_the_content();
-			$content = strip_tags($content);
-
-			switch ($style) {
-				case 'zoe': ?>
-					<figure class="effect-<?php echo $style; ?>">
 						<?php the_post_thumbnail(); ?>
+						
+						<?php if ( 'cs-style-4' == $style ): ?>
+								<div>
+						<?php endif ?>
 						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p class="icon-links">
-								<a href="<?php the_permalink(); ?>"><span class="icon-eye"></span></a>	
-							</p>
-							<p><?php echo substr($content, 0, 50); ?></p>
-						</figcaption>			
-					</figure>			
-				<?php break;
-
-				case 'julia': ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<div>
-								<p><?php echo substr($content, 0, 50); ?></p>	
-							</div>
-							<a href="<?php the_permalink(); ?>">View More</a>	
-						</figcaption>			
-					</figure>			
-				<?php break;
-
-				case 'hera': ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-file-pdf-o"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-file-image-o"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-file-archive-o"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-file-code-o"></i></a>
-							</p>
-						</figcaption>			
-					</figure>			
-				<?php break;
-
-				case 'winston': ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-star-o"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-comments-o"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-envelope-o"></i></a>
-							</p>
-						</figcaption>			
-					</figure>			
-				<?php break;
-
-				case 'terry': ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-download"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-heart"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-share"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-tags"></i></a>
-							</p>
-						</figcaption>			
-					</figure>			
-				<?php break;
-
-				case 'phoebe': ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-user"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-heart"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-cog"></i></a>
-							</p>
-						</figcaption>			
+							<h3><?php the_title(); ?></h3>
+							<span><?php the_category(', '); ?></span>
+							<a href="<?php the_permalink(); ?>">Take a look</a>
+						</figcaption>
 					</figure>
-				<?php break;
-
-				case 'kira': ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-home"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-download"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-heart"></i></a>
-								<a href="<?php the_permalink(); ?>"><i class="fa fa-fw fa-share"></i></a>
-							</p>
-						</figcaption>			
-					</figure>
-				<?php break;
-
-				case 'wdx': ?>
-					<a href="<?php the_permalink(); ?>">
-						<article class="template-version">
-							<div class="pc-screen">
-							    <?php the_post_thumbnail(); ?>
-							    <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-							    <div class="pc-screen-content screen-dark-one" style="background-image: url('<?php echo $url; ?>');"></div>
-							</div>
-							<p><?php the_title(); ?></p>
-						</article>
-					</a>
-				<?php break;
-
-				case 'oscar' || 'marley' || 'lily' || 'sadie' || 'honey' || 'layla' || 'ruby' || 'roxy' || 'bubba' || 'romeo' || 'dexter' || 'sarah' || 'chico' || 'milo' || 'selena' || 'apollo' || 'steve' || 'moses' || 'jazz' || 'ming' || 'lexi' || 'duke' || 'goliath' : ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p><?php echo substr($content, 0, 50); ?></p>
-							<a href="<?php the_permalink(); ?>">View more</a>
-						</figcaption>			
-					</figure>			
-				<?php break;
-
-				default: ?>
-					<figure class="effect-<?php echo $style; ?>">
-						<?php the_post_thumbnail(); ?>
-						<figcaption>
-							<h2><span><?php the_title(); ?></span></h2>
-							<p><?php echo substr($content, 0, 50); ?></p>
-							<a href="<?php the_permalink(); ?>">View more</a>
-						</figcaption>			
-					</figure>	
-				<?php
-				break;
-			} ?>	
-
+				</li>	
 			<?php endwhile; ?>
 		<?php wp_reset_postdata(); 
 		endif; 
@@ -289,36 +163,13 @@ if ( function_exists( 'vc_map' ) ) {
 					'heading'		=> __( 'Select Style ', 'portfoliox' ),
 					'param_name'	=> 'style',
 					'value'			=> array(
-						__( 'Goliath', 'portfoliox' )	=> 'goliath',
-						__( 'Duke', 'portfoliox' )		=> 'duke',
-						__( 'Lexi', 'portfoliox' )		=> 'lexi',
-						__( 'Ming', 'portfoliox' )		=> 'ming',
-						__( 'Jazz', 'portfoliox' )		=> 'jazz',
-						__( 'Moses', 'portfoliox' )		=> 'moses',
-						__( 'Steve', 'portfoliox' )		=> 'steve',
-						__( 'Apollo', 'portfoliox' )	=> 'apollo',
-						__( 'Selena', 'portfoliox' )	=> 'selena',
-						__( 'Milo', 'portfoliox' )		=> 'milo',
-						__( 'Chico', 'portfoliox' )		=> 'chico',
-						__( 'Sarah', 'portfoliox' )		=> 'sarah',
-						__( 'Dexter', 'portfoliox' )	=> 'dexter',
-						__( 'Romeo', 'portfoliox' )		=> 'romeo',
-						__( 'Bubba', 'portfoliox' )		=> 'bubba',
-						__( 'Roxy', 'portfoliox' )		=> 'roxy',
-						__( 'Ruby', 'portfoliox' )		=> 'ruby',
-						__( 'Layla', 'portfoliox' )		=> 'layla',
-						__( 'Honey', 'portfoliox' )		=> 'honey',
-						__( 'Sadie', 'portfoliox' )		=> 'sadie',
-						__( 'Lily', 'portfoliox' )		=> 'lily',
-						__( 'Oscar', 'portfoliox' )		=> 'oscar',
-						__( 'Marley', 'portfoliox' )	=> 'marley',
-						__( 'Zoe', 'portfoliox' )		=> 'zoe',
-						__( 'Julia', 'portfoliox' )		=> 'julia',
-						__( 'Hera', 'portfoliox' )		=> 'hera',
-						__( 'Winston', 'portfoliox' )	=> 'winston',
-						__( 'Terry', 'portfoliox' )		=> 'terry',
-						__( 'Phoebe', 'portfoliox' )	=> 'phoebe',
-						__( 'Wdx', 'portfoliox' )	=> 'wdx'
+						__( 'cs-style-1', 'portfoliox' )	=> 'Style 1',
+						__( 'cs-style-2', 'portfoliox' )	=> 'Style 2',
+						__( 'cs-style-3', 'portfoliox' )	=> 'Style 3',
+						__( 'cs-style-4', 'portfoliox' )	=> 'Style 4',
+						__( 'cs-style-5', 'portfoliox' )	=> 'Style 5',
+						__( 'cs-style-6', 'portfoliox' )	=> 'Style 6',
+						__( 'cs-style-7', 'portfoliox' )	=> 'Style 7',
 					),
 				),
 			);
