@@ -70,10 +70,11 @@ function portfoliox_shortcode($atts) {
         'limit'			=> '',
         'order_by'		=> 'date',
         'style'			=> '',
-        'order'			=> 'desc'
+        'order'			=> 'desc',
+        'column'		=> 'column-2'
 	), $atts ) );
 
-	$gallery_args   = array(
+		$portfoliox_args   = array(
 			'post_type'         => 'portfoliox',
 			'posts_per_page'    => $limit,
 			'post_status'       => 'publish',
@@ -81,16 +82,23 @@ function portfoliox_shortcode($atts) {
 			'order'             => $order,
 		); 
 		
+		//load query
 		$wp_query 	= null; 
 		$wp_query 	= new WP_Query(); 
-		$wp_query->query( $gallery_args ); 
+		$wp_query->query( $portfoliox_args ); 
 
+		//check style
 		if ( '' == $style ) {
 			$style = 'cs-style-1'; 
 		}
 
+		//check column
+		if ( '' == $column ) {
+			$column = 'column-2'; 
+		}
+
 	ob_start();
-		echo '<div class="grid ' . $style . '">';
+		echo '<div class="grid ' . $style . ' ' . $column . '">';
 		if ( $wp_query->have_posts() ) : 
 
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
@@ -102,7 +110,7 @@ function portfoliox_shortcode($atts) {
 						<?php endif ?>
 
 						<?php the_post_thumbnail(); ?>
-						
+
 						<?php if ( 'cs-style-4' == $style ): ?>
 								<div>
 						<?php endif ?>
@@ -163,13 +171,24 @@ if ( function_exists( 'vc_map' ) ) {
 					'heading'		=> __( 'Select Style ', 'portfoliox' ),
 					'param_name'	=> 'style',
 					'value'			=> array(
-						__( 'cs-style-1', 'portfoliox' )	=> 'Style 1',
-						__( 'cs-style-2', 'portfoliox' )	=> 'Style 2',
-						__( 'cs-style-3', 'portfoliox' )	=> 'Style 3',
-						__( 'cs-style-4', 'portfoliox' )	=> 'Style 4',
-						__( 'cs-style-5', 'portfoliox' )	=> 'Style 5',
-						__( 'cs-style-6', 'portfoliox' )	=> 'Style 6',
-						__( 'cs-style-7', 'portfoliox' )	=> 'Style 7',
+						__( 'Style 1', 'portfoliox' )	=> 'cs-style-1',
+						__( 'Style 2', 'portfoliox' )	=> 'cs-style-2',
+						__( 'Style 3', 'portfoliox' )	=> 'cs-style-3',
+						__( 'Style 4', 'portfoliox' )	=> 'cs-style-4',
+						__( 'Style 5', 'portfoliox' )	=> 'cs-style-5',
+						__( 'Style 6', 'portfoliox' )	=> 'cs-style-6',
+						__( 'Style 7', 'portfoliox' )	=> 'cs-style-7',
+					),
+				),
+
+				array(
+					'type'			=> 'dropdown',
+					'heading'		=> __( 'Select Column ', 'portfoliox' ),
+					'param_name'	=> 'column',
+					'value'			=> array(
+						__( '2', 'portfoliox' )	=> 'column-2',
+						__( '3', 'portfoliox' )	=> 'column-3',
+						__( '4', 'portfoliox' )	=> 'column-4',
 					),
 				),
 			);
