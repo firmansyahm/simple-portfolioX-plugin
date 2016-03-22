@@ -1,12 +1,11 @@
 Simple PortpolioX plugin
 ============================================================
-Installation
+<h2>Installation</h2>
 
-- 
-1. download the zip file,
-2. in dashboard go to Plugin > Add New > Upload Plugin >
-3. Choose File and install Now
--
+- download the zip file,
+- in dashboard go to Plugin > Add New > Upload Plugin >
+- Choose File and install Now
+
 or close the git to your directory wordpress > wp-content > plugin > PortpolioX
 
 ============================================================
