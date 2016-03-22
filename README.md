@@ -28,7 +28,6 @@ or close the git to your directory wordpress > wp-content > plugin > PortpolioX
 	- cs-style-5
 	- cs-style-6
 	- cs-style-7
-	</ul>
 	
 <h5> Column </h5>
 	- column-2
