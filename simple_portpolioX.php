@@ -59,7 +59,7 @@ function style_portfoliox() {
 	wp_enqueue_style( 'portfoliox-component' , plugin_dir_url( __FILE__ ) . 'css/component.css' );
 	wp_enqueue_style( 'portfoliox-default' , plugin_dir_url( __FILE__ ) . 'css/default.css' );
 	wp_enqueue_style( 'portfoliox-style' , plugin_dir_url( __FILE__ ) . 'css/style.css' );
-	wp_enqueue_style( 'portfoliox-fonts', 'http://fonts.googleapis.com/css?family=Raleway:400,800,300', array(), $theme->Version, 'all' );
+	wp_enqueue_style( 'portfoliox-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700', array(), $theme->Version, 'all' );
 
 	wp_enqueue_script( 'portfoliox-modernizr', plugin_dir_url( __FILE__ ) . '/js/modernizr.custom.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'portfoliox-toucheffects', plugin_dir_url( __FILE__ ) . '/js/toucheffects.js', array( 'jquery' ), '', true );
@@ -101,7 +101,7 @@ function portfoliox_shortcode($atts) {
 		}
 
 	ob_start();
-		echo '<ul class="grid ' . $style . ' ' . $column . '">';
+		echo '<div class="portfolio"><ul class="grid ' . $style . ' ' . $column . '">';
 		if ( $wp_query->have_posts() ) : 
 
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
@@ -127,7 +127,7 @@ function portfoliox_shortcode($atts) {
 			<?php endwhile; ?>
 		<?php wp_reset_postdata(); 
 		endif; 
-		echo '</ul>'; ?>
+		echo '</ul></div>'; ?>
 
 	<?php return ob_get_clean();
 

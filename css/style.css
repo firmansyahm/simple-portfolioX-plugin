@@ -1,3 +1,41 @@
-body {
-	background: red !important;
+.portfolio .grid {
+	padding: 0px;
+}
+
+.portfolio .grid li{
+	padding: 10px;
+}
+.portfolio li figure figcaption span a{
+	background: none;
+	box-shadow: none;
+	padding: 0px;
+}
+.portfolio .grid a {
+	box-shadow: none;
+	font-family: 'Open Sans', sans-serif;
+	border-radius: none;
+}
+
+
+.portfolio .column-2 li{
+	width: 49%;
+}
+.portfolio .column-2 li figure figcaption h3{
+	margin-top: 2.5em;
+}
+.portfolio .column-2 li figure figcaption span {
+	line-height: 20px;
+}
+
+.portfolio .column-2 li figure figcaption a{
+	margin-top: 20px;
+}
+
+
+.portfolio .column-3 li{
+	width: 33%;
+}
+
+.portfolio .column-4 li{
+	width: 24.55%;
 }
