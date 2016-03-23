@@ -118,9 +118,11 @@ function portfoliox_shortcode($atts) {
 								<div>
 						<?php endif ?>
 						<figcaption>
-							<h3><?php the_title(); ?></h3>
-							<span><?php the_category(', '); ?></span>
-							<a href="<?php the_permalink(); ?>">Take a look</a>
+							<div>
+								<h3><?php the_title(); ?></h3>
+								<span><?php the_category(', '); ?></span>
+								<a href="<?php the_permalink(); ?>">Take a look</a>
+							</div>
 						</figcaption>
 					</figure>
 				</li>	

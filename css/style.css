@@ -10,32 +10,112 @@
 	box-shadow: none;
 	padding: 0px;
 }
+.portfolio .grid li figure figcaption a:hover{
+	background: #C83754;
+}
 .portfolio .grid a {
 	box-shadow: none;
 	font-family: 'Open Sans', sans-serif;
-	border-radius: none;
+	border-radius: 0px;
+	font-size: 12px;
 }
 
+.portfolio .grid a:hover {
+	text-decoration: none;
+}
 
-.portfolio .column-2 li{
-	width: 49%;
+.portfolio li{
+	width: 100%;
 }
-.portfolio .column-2 li figure figcaption h3{
-	margin-top: 2.5em;
+@media (min-width: 480px) {
+	.portfolio li{
+		width: 49%;
+	}
 }
-.portfolio .column-2 li figure figcaption span {
+.portfolio .cs-style-1 li figure figcaption h3 {
+	margin-top: 0px;
+}
+.portfolio .cs-style-1 li figure div {
+	position: absolute;
+    width: 100%;
+    left: 0px;
+    top: calc(50% - 70px);
+}
+
+.portfolio .cs-style-1 li figure figcaption span {
 	line-height: 20px;
 }
 
-.portfolio .column-2 li figure figcaption a{
+.portfolio .cs-style-1 li figure figcaption a{
 	margin-top: 20px;
 }
 
 
-.portfolio .column-3 li{
+/*.portfolio .column-3 li{
 	width: 33%;
 }
 
 .portfolio .column-4 li{
 	width: 24.55%;
+}*/
+
+/*styl 2*/
+.portfolio .cs-style-2 li figure figcaption span {
+	max-width: 50%;
+}
+.portfolio .cs-style-2 li figure figcaption span a {
+	position: static;
+}
+.portfolio .cs-style-2 li figure figcaption a {
+	top: 18px;
+}
+/*styl 3*/
+.portfolio .cs-style-3 li figure figcaption span {
+	max-width: 50%;
+}
+.portfolio .cs-style-3 li figure figcaption span a {
+	position: static;
+}
+.portfolio .cs-style-3 li figure figcaption a {
+	top: 18px;
+	bottom: initial;
+}
+/*styl 4*/
+.portfolio .cs-style-4 li figure figcaption span {
+	max-width: 50%;
+}
+.portfolio .cs-style-4 li figure figcaption span a {
+	position: static;
+}
+
+/*styl 5*/
+.portfolio .grid.cs-style-5 li figure:hover img {
+	-webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+}
+.portfolio .cs-style-5 li figure figcaption span {
+	max-width: 50%;
+}
+.portfolio .cs-style-5 li figure figcaption span a {
+	position: static;
+}
+/*styl 6*/
+.portfolio .cs-style-6 li figure figcaption h3{
+	margin-top: 50%;
+}
+.portfolio .cs-style-6 li figure figcaption span {
+	max-width: 50%;
+}
+.portfolio .cs-style-6 li figure figcaption span a {
+	position: static;
+}
+
+/*styl 7*/
+.portfolio .cs-style-7 li figure figcaption span {
+	max-width: 50%;
+}
+.portfolio .cs-style-7 li figure figcaption span a {
+	position: static;
 }
