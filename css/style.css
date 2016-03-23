@@ -51,13 +51,13 @@
 }
 
 
-/*.portfolio .column-3 li{
-	width: 33%;
+.portfolio .column-3 li{
+	width: 32.33%;
 }
 
 .portfolio .column-4 li{
 	width: 24.55%;
-}*/
+}
 
 /*styl 2*/
 .portfolio .cs-style-2 li figure figcaption span {
