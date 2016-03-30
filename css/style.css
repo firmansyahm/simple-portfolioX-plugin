@@ -119,3 +119,12 @@
 .portfolio .cs-style-7 li figure figcaption span a {
 	position: static;
 }
+
+.portfolio .cs-style-7 li figure figcaption div {
+	position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+	}
+
+    
