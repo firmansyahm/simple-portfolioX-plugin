@@ -31,7 +31,7 @@ or close the git to your directory wordpress > wp-content > plugin > PortpolioX
 
 ============================================================
 <h2>Author</h2>
-plugin for portpolio post type create by firmansyahmaulana.com,
+plugin for Simple PortfolioX -  post type create by firmansyahmaulana.com,
 
 custom css from ihsanatkia.com
 
