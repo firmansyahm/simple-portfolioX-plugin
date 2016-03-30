@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Portfolio Simple X
-Plugin URI: http://firmansyahmaulana.com/ , ihsanatkia.com
+Plugin URI: http://firmansyahmaulana.com/portfolioX/
 Author: Firmansyah , Ihsan 
 Author URI: http://firmansyahmaulana.com/ , ihsanatkia.com
 Version: 1.0

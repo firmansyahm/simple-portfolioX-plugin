@@ -15,7 +15,7 @@ or close the git to your directory wordpress > wp-content > plugin > PortpolioX
 - add your portfolio in Portolio Post like other Post
 - create new page and add this shortcode
 
-[ portfoliox_shortcode limit='' order_by='' style='' order='' column='']
+[ portfoliox_shortcode limit='' order_by='' style='' order='']
 
 <h5> Order and orderby parametes </h5> 
 	https://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters 
@@ -28,17 +28,13 @@ or close the git to your directory wordpress > wp-content > plugin > PortpolioX
 	- cs-style-5
 	- cs-style-6
 	- cs-style-7
-	
-<h5> Column </h5>
-	- column-2
-	- column-3
-	- column-4
 
 ============================================================
 <h2>Author</h2>
-plugin for portpolio post type create by firmansyahmaulana.com,
+plugin for Simple PortfolioX -  post type create by firmansyahmaulana.com,
 
 custom css from ihsanatkia.com
 
 7 style hover form https://github.com/codrops/CaptionHoverEffects
 
+Demo Images Credits: https://unsplash.com
