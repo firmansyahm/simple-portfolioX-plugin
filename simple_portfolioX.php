@@ -34,7 +34,7 @@ function post_portfoliox() {
 		'description'         => __( 'Portfolio Description', 'portfoliox' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes' ),
-		'taxonomies'          => array( 'category', 'post_tag' ),
+		//'taxonomies'          => array( 'category', 'post_tag' ),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -53,6 +53,35 @@ function post_portfoliox() {
 }
 add_action( 'init', 'post_portfoliox', 0 );
 
+//add taxonomy
+add_action( 'init', 'create_portfoliox_cat' );
+
+function create_portfoliox_cat() {
+	register_taxonomy(
+		'portfoliox_category',
+		'portfoliox',
+		array(
+			'label' => __( 'Category' ),
+			'rewrite' => array( 'slug' => 'portfoliox_category' ),
+			'hierarchical' => true,
+		)
+	);
+}
+
+//add taxonomy
+add_action( 'init', 'create_portfoliox_tax' );
+
+function create_portfoliox_tax() {
+	register_taxonomy(
+		'portofoliox_taxonomy',
+		'portfoliox',
+		array(
+			'label' => __( 'Tags' ),
+			'rewrite' => array( 'slug' => 'portfoliox_tags' ),
+			'hierarchical' => true,
+		)
+	);
+}
 
 //add style
 function style_portfoliox() {
@@ -201,7 +230,7 @@ if ( function_exists( 'vc_map' ) ) {
 		vc_map( array(
 			'name'				=> __( 'PortfolioX' , 'portfoliox' ),
 			'base'				=> 'portfoliox_shortcode',
-			'category'			=> 'PortfolioX',
+			'category'			=> 'PortfolioX',	
 			'admin_enqueue_js' 	=> '',
 			'params'			=> $params,
 			'description' 		=> __( 'PortolioX Shortcode.', 'portfoliox' ),
@@ -210,5 +239,14 @@ if ( function_exists( 'vc_map' ) ) {
 	}
 } //if VC plugin active
 
+/* Filter the single_template with our custom function*/
+function portfoliox_template($single_template) {
+     global $post;
 
+     if ( $post->post_type == 'portfoliox' ) {
+		 $single_template =  dirname( __FILE__ ) . '/templates/single-portfolio.php';
+     }
+     return $single_template;
+}
+add_filter( 'single_template', 'portfoliox_template' );
 
