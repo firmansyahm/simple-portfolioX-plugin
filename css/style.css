@@ -39,7 +39,7 @@
 	position: absolute;
     width: 100%;
     left: 0px;
-    top: calc(50% - 70px);
+    top: calc(50% - 50px);
 }
 
 .portfolio .cs-style-1 li figure figcaption span {
@@ -125,6 +125,75 @@
     width: 100%;
     bottom: 0;
     left: 0;
+}
+
+.main-shot {
+	display: flex;
+    flex-direction: row;
+	align-items: stretch; 
+	font-family: Poppins, "Helvetica Neue", arial, sans-serif;
+}
+
+@media(max-width: 670px) {
+	.main-shot {
+		display: block;
 	}
+	#content .main-shot .screenshot-info-wrapper .screenshot-meta .tags-section .meta-head {
+		line-height: 20px;
+	}
+}
+h1.title-single {
+	padding: 20px;
+    font-size: 30px;
+}
+.main-shot .the-shot ,
+.main-shot .screenshot-info-wrapper {
+	width: 100%;
+	padding: 10px;
+}
+
+
+.main-shot .single .single-grid {
+	padding: 20px;
+	background: #fff;
+	border-radius: 4px;
+}
+.main-shot .screenshot-info-wrapper .screenshot-conversation .shot-desc{
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+}
+.main-shot .screenshot-info-wrapper .screenshot-meta {
+	display: inline-block;
+    margin-top: 20px;
+    padding-right: 100px;
+}
+
+.main-shot .screenshot-info-wrapper .screenshot-meta .tags-section {
+	display: inline-block;
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+}
+.main-shot .screenshot-info-wrapper .screenshot-meta .tags-section .meta-head{
+	float: left;
+	padding-right: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 31px;
+    // border-bottom: 1px solid #ddd;
+}
+
+.main-shot .screenshot-info-wrapper .screenshot-meta .tags-section .popular-tags{
+	margin: 0px;
+	float: left;
+	// border-bottom: 1px solid #ddd;
+}
+.main-shot .screenshot-info-wrapper .screenshot-meta .tags-section .popular-tags li{
+	display: inline-block;
+	font-size: 14px;
+	color: #727b81;
+	margin-right: 10px;
+
+}
 
     
