@@ -136,16 +136,24 @@
 }
 
 .single-portfoliox .main-portfolio {
-	display: flex;
-    flex-direction: row;
-	align-items: stretch; 
 	font-family: 'Open Sans', sans-serif;
 	margin: 20px 0px;
 }
+
+@media(min-width: 992px) {
+	.single-portfoliox .main-portfolio {
+		display: flex;
+	    flex-direction: row;
+		align-items: stretch; 
+	}
+}
+
 .single-portfoliox .left-content ,
 .single-portfoliox .right-content {
 	width: 100%;
 }
+
+
 
 .single-portfoliox .left-content figure .single-img {
 	background: #eee;
